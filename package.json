@@ -1,24 +1,89 @@
 {
   "name": "testing-calcumate-integration",
-  "version": "0.1.0",
-  "private": true,
-  "scripts": {
-    "dev": "next dev",
-    "build": "next build",
-    "start": "next start",
-    "lint": "next lint"
-  },
-  "dependencies": {
-    "next": "13.0.0",
-    "react": "18.2.0",
-    "react-dom": "18.2.0"
-  },
-  "devDependencies": {
-    "@types/node": "18.11.5",
-    "@types/react": "18.0.23",
-    "@types/react-dom": "18.0.7",
-    "eslint": "8.26.0",
-    "eslint-config-next": "13.0.0",
-    "typescript": "4.8.4"
+    "version": "0.1.0",
+    "private": true,
+    "dependencies": {
+      "@apollo/client": "^3.3.16",
+      "@honeybadger-io/js": "^4.0.3",
+      "@testing-library/jest-dom": "^5.12.0",
+      "@testing-library/react": "^11.2.6",
+      "@testing-library/user-event": "^12.8.3",
+      "@types/jest": "^26.0.23",
+      "@types/js-cookie": "^3.0.1",
+      "@types/node": "^12.20.12",
+      "@types/react": "^17.0.5",
+      "@types/react-dom": "^17.0.3",
+      "@types/webpack-env": "^1.16.0",
+      "antd": "^4.15.4",
+      "graphql": "^15.5.0",
+      "http-proxy-middleware": "2.0.6",
+      "i18next-xhr-backend": "^3.2.2",
+      "js-cookie": "^3.0.1",
+      "less": "^4.1.2",
+      "next": "12.2.2",
+      "next-compose-plugins": "^2.2.1",
+      "next-i18next": "11.0.0",
+      "next-with-less": "^2.0.4",
+      "react": "^17.0.2",
+      "react-dom": "^17.0.2",
+      "react-ga": "^3.3.0",
+      "react-gtm-module": "^2.0.11",
+      "sass": "^1.45.1",
+      "styled-components": "^5.3.0",
+      "typescript": "^4.2.4",
+      "web-vitals": "2.1.4"
+    },
+    "scripts": {
+      "dev": "next dev",
+      "start": "next start",
+      "build": "next build",
+      "build:staging": "env-cmd -f .client.staging next build",
+      "build:vagrant": "env-cmd -f .client.vagrant next build",
+      "build:production": "env-cmd -f .client.production next build",
+      "test": "next test",
+      "eject": "react-scripts eject",
+      "format": "prettier --write src/**/*.{ts,tsx}",
+      "lint": "node_modules/eslint/bin/eslint.js --fix 'src/**/*.{ts,tsx}' --max-warnings 1",
+      "translate-en": "node_modules/i18next-parser/bin/cli.js 'src/**/*.tsx' 'src/**/*.ts' -c EN_i18next-parser.config.js",
+      "translate-others": "node_modules/i18next-parser/bin/cli.js 'src/**/*.tsx' 'src/**/*.ts' -c i18next-parser.config.js",
+      "translate": "npm run translate-en && npm run translate-others"
+    },
+    "eslintConfig": {
+      "extends": [
+        "react-app",
+        "react-app/jest"
+      ]
+    },
+    "browserslist": {
+      "production": [
+        ">0.2%",
+        "not dead",
+        "not op_mini all"
+      ],
+      "development": [
+        "last 1 chrome version",
+        "last 1 firefox version",
+        "last 1 safari version"
+      ]
+    },
+    "devDependencies": {
+      "@svgr/webpack": "^6.1.2",
+      "@types/react-gtm-module": "^2.0.0",
+      "@types/react-router-dom": "^5.1.7",
+      "@types/styled-components": "^5.1.9",
+      "babel-plugin-styled-components": "^2.0.2",
+      "env-cmd": "^10.1.0",
+      "eslint": "^7.25.0",
+      "eslint-config-airbnb-typescript-prettier": "^4.2.0",
+      "i18next-parser": "6.5.0",
+      "less-loader": "11.0.0",
+      "nodemon": "^2.0.7",
+      "postcss-flexbugs-fixes": "^5.0.2",
+      "postcss-import": "^14.0.2",
+      "postcss-preset-env": "^7.4.1",
+      "prettier": "^2.2.1",
+      "webpack-bundle-analyzer": "^4.4.1",
+      "webpackbar": "^5.0.0-3"
+    }
   }
-}
+  
